@@ -24,6 +24,9 @@
     height: 100%;
 }*/
 
+.testo{position: relative; z-index: 1;"
+}
+
 /* Il contenitore diventa lo sfondo fisso */
 .conteiner {
     position: fixed;
