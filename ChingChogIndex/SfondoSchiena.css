@@ -1,0 +1,78 @@
+/*.pelo{
+    
+    display:inline-block ;
+     /* position: relative;
+    z-index: 1;
+    background-color: #371a09 ;
+    width: 15px;
+    height: 500px;
+    margin: 0px 7px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 50% 100%, 0% 0%);
+}
+.hitbox{
+    display: inline-block;
+    /* position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 500px;
+    margin: 0 0px;
+    border: transparent 20px;    
+}
+.conteiner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}*/
+
+/* Il contenitore diventa lo sfondo fisso */
+.conteiner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Lo mette dietro a tutto */
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap; /* Permette ai peli di riempire lo schermo */
+    pointer-events: all; /* Assicura che i peli sentano il mouse */
+}
+
+/* Ottimizzazione dei peli per coprire lo sfondo */
+.hitbox {
+    display: inline-block;
+    width: 30px;
+    height: 100px; /* Ridotto per averne di più in verticale */
+    margin: 5px;
+    flex-shrink: 0;
+}
+
+.pelo {
+    display: block;
+    background-color: #371a09;
+    width: 8px; /* Più sottili */
+    height: 100%;
+    margin: 0 auto;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    transition: transform 0.5s ease; /* Rende il ritorno più fluido */
+}
+.testo{
+    position: absolute;
+    z-index: 1;
+    color: aliceblue;
+}
+
+
+body {
+    background-color: #6b442a;
+}
+
+@keyframes MovimentoPeli {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(15deg); }
+}
+
+.hitbox:hover .pelo {
+    transform-origin: top center;
+    animation: MovimentoPeli 0.2s ease-in-out forwards;
+}
